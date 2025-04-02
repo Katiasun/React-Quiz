@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import QUESTIONS from "../questions";
 import Question from "./Question";
+import Summery from "./Summary";
 
 export default function Quiz() {
   const [userAnswers, setUserAnswers] = useState([]);
@@ -17,6 +18,7 @@ export default function Quiz() {
   const handleSkipAnswer = useCallback(() => handleSelectAnswer(null));
 
   if (quizIsComplete) {
+    return <Summery userAnswers={userAnswers} />;
   }
 
   return (
